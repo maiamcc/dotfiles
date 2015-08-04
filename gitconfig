@@ -1,0 +1,24 @@
+[user]
+    name = Maia
+    email = maia.mcc@gmail.com
+[core]
+	editor = vim
+[color]
+    ui = auto
+[alias]
+    a = add -A
+    d = diff
+    st = status
+    co = checkout
+    b = branch
+    submodules-to-master = submodule foreach "git fetch && git checkout master && git pull origin master"
+    cm = commit -m
+    ca = commit --amend
+    log = log --stat
+    graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+    pull = pull --rebase
+    pom = pull origin master
+[grep]
+    lineNumber = true
+[push]
+	default = simple
