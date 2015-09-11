@@ -34,3 +34,6 @@ alias sound='afplay /System/Library/Sounds/Ping.aiff'
 
 # open all config files
 alias config='subl ~/.bash_profile ~/.bash_aliases ~/.work_profile ~/.work_aliases'
+
+# source bash profile
+alias sc='source ~/.bash_profile'
