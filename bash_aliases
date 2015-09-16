@@ -33,7 +33,7 @@ alias procs="ps -ef | grep"
 alias sound='afplay /System/Library/Sounds/Ping.aiff'
 
 # open all config files
-alias config='subl ~/.bash_profile ~/.bash_aliases ~/.work_profile ~/.work_aliases'
+alias config='subl ~/.bash_profile ~/.bash_aliases ~/.work_profile ~/.work_aliases ~/.gitconfig'
 
 # source bash profile
 alias src='source ~/.bash_profile'
