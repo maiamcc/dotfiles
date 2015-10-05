@@ -8,6 +8,7 @@
 [alias]
     a = add -A
     d = diff
+    dno = diff --name-only
     st = status
     co = checkout
     b = branch
