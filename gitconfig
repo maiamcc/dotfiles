@@ -18,7 +18,9 @@
     log = log --stat
     graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
     pull = pull --rebase
-    pom = pull origin master
+    pullom = pull origin master
+    pushom = push origin master
+    rebm = rebase master
 [grep]
     lineNumber = true
 [push]
