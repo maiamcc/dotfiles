@@ -9,20 +9,18 @@ if [ -x /usr/bin/dircolors ]; then
     alias ls='ls --color=auto'
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
- 
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
- 
+
 # some more ls aliases
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
 alias ls='LC_COLLATE=C ls -F -G'
- 
 alias ll='ls -lashF'
 alias la='ls -A'
 alias l='ls -CF'
- 
+
 # look at file at a git hash
 alias glook='git cat-file -p'
 

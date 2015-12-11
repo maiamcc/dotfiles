@@ -9,7 +9,7 @@ export HISTFILESIZE=100000
 export HISTCONTROL=ignoredups:erasedups
 export HISTCONTROL=ignoreboth
 export PROMPT_COMMAND="history -a;history -c;history -r;$PROMPT_COMMAND"
- 
+
 # editor is vim
 export VISUAL=vim
 export EDITOR="$VISUAL"
@@ -63,3 +63,6 @@ fi
 if [ -f ~/.work_aliases ]; then
     . ~/.work_aliases
 fi
+
+# the fuck?? (https://github.com/nvbn/thefuck)
+eval $(thefuck --alias)
