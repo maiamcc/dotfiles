@@ -33,6 +33,19 @@ if [ -f ~/.alias_completion.sh ]; then
   . ~/.alias_completion.sh
 fi
 
+# easily go up <n> directories. Credit: Benjamin Gilbert (www.github.com/bgilbert)
+# up   == cd ..
+# up 3 == cd ../../..
+up() {
+    local old
+    old=$PWD
+    for i in `seq 1 $1` ; do
+        cd ..
+    done
+    # keep "cd -" working
+    OLDPWD=$old
+}
+
 # speedily activate virtualenv
 venv () {
 if [ -f env/bin/activate ]
