@@ -35,3 +35,9 @@ alias config='subl ~/.bash_profile ~/.bash_aliases ~/.work_profile ~/.work_alias
 
 # source bash profile
 alias src='source ~/.bash_profile'
+
+# commit as a wip
+alias wip='g a && g cm "wip"'
+
+# ...and check out master
+alias wipco='g a && g cm "wip" && g co master'
