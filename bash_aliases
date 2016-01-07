@@ -41,3 +41,7 @@ alias wip='g a && g cm "wip"'
 
 # ...and check out master
 alias wipco='g a && g cm "wip" && g co master'
+
+# url encode and decode
+alias urlenc='urlencode'
+alias urldec='urldecode'
