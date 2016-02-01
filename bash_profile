@@ -101,3 +101,4 @@ urldecode() {
     local url_encoded="${1//+/ }"
     printf '%b' "${url_encoded//%/\\x}"
 }
+alias grep='grep --color=auto'
