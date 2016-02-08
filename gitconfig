@@ -11,6 +11,7 @@
     dno = diff --name-only
     st = status
     co = checkout
+    cp = cherry-pick
     b = branch
     submodules-to-master = submodule foreach "git fetch && git checkout master && git pull origin master"
     cm = commit -m
