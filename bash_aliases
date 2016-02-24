@@ -42,6 +42,9 @@ alias wip='g a && g cm "wip"'
 # ...and check out master
 alias wipco='g a && g cm "wip" && g co master'
 
+# commit current work as wip, update master, switch back to old branch and rebase
+alias rebm='wipco && g pullom && g co - && g rebasem && g reset head~'
+
 # url encode and decode
 alias urlenc='urlencode'
 alias urldec='urldecode'

@@ -17,11 +17,12 @@
     cm = commit -m
     ca = commit --amend
     log = log --stat
+    l = log
     graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
     pull = pull --rebase
     pullom = pull origin master
     pushom = push origin master
-    rebm = rebase master
+    rebasem = rebase master
 [grep]
     lineNumber = true
 [push]
