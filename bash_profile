@@ -102,3 +102,11 @@ urldecode() {
     printf '%b' "${url_encoded//%/\\x}"
 }
 alias grep='grep --color=auto'
+
+# Copy a safety pig onto your clipboard.
+# (It's dangerous to go alone! Here, take this!)
+safetypig() {
+    if [ -f ~/.safety_pig ]; then
+        cat ~/.safety_pig | pbcopy
+    fi
+}

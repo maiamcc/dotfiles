@@ -48,3 +48,6 @@ alias rebm='wipco && g pullom && g co - && g rebasem && g reset head~'
 # url encode and decode
 alias urlenc='urlencode'
 alias urldec='urldecode'
+
+# copy a safety pig to your clipboard
+alias pig='safetypig'
