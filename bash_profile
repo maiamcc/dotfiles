@@ -10,6 +10,21 @@ export HISTCONTROL=ignoredups:erasedups
 export HISTCONTROL=ignoreboth
 export PROMPT_COMMAND="history -a;history -c;history -r;$PROMPT_COMMAND"
 
+# Alias definitions -- pulled from ~/.bash_aliases
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# Work-related functions
+if [ -f ~/.work_profile ]; then
+    . ~/.work_profile
+fi
+
+# Work-related functions
+if [ -f ~/.work_aliases ]; then
+    . ~/.work_aliases
+fi
+
 # editor is vim
 export VISUAL=vim
 export EDITOR="$VISUAL"
@@ -61,21 +76,6 @@ else
 echo "No virtualenv 'activate' file found"
 fi
 }
-
-# Alias definitions -- pulled from ~/.bash_aliases
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
-# Work-related functions
-if [ -f ~/.work_profile ]; then
-    . ~/.work_profile
-fi
-
-# Work-related functions
-if [ -f ~/.work_aliases ]; then
-    . ~/.work_aliases
-fi
 
 # the fuck?? (https://github.com/nvbn/thefuck)
 eval $(thefuck --alias)
