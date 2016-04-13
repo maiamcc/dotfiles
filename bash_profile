@@ -80,6 +80,16 @@ fi
 # the fuck?? (https://github.com/nvbn/thefuck)
 eval $(thefuck --alias)
 
+# make a dir and cd into it. Supports up to one flag.
+mkgo() {
+    if [ -n "$2" ]; then
+        FLAG=$1
+        shift
+    fi
+    mkdir $FLAG $1
+    cd $1
+}
+
 # url encode and decode. Credit: CDown (https://gist.github.com/cdown/1163649)
 urlencode() {
     # urlencode <string>

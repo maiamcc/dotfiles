@@ -2,6 +2,8 @@
 
 # git, my git!
 alias g='git'
+alias gacm='git add -A && git commit -m'
+alias gaca='git add -A && git commit --amend --no-edit'
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
