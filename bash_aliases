@@ -53,3 +53,6 @@ alias urldec='urldecode'
 
 # copy a safety pig to your clipboard
 alias pig='safetypig'
+
+# restart clipboard if it's being a jerk
+alias restclip='launchctl stop com.apple.pboard && launchctl start com.apple.pboard'

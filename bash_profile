@@ -120,3 +120,13 @@ safetypig() {
         cat ~/.safety_pig | pbcopy
     fi
 }
+
+# count how many matching procs (excluding the "grep" you just ran)
+
+pcount() {
+    if [ "$#" -lt 1 ]; then
+        echo "Pass a string to grep for."
+    else
+        echo "$(ps -ef | grep $1 | wc -l) - 1" | bc
+    fi
+}
