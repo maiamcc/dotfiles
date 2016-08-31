@@ -13,17 +13,18 @@
     co = checkout
     cp = cherry-pick
     b = branch
-    submodules-to-master = submodule foreach "git fetch && git checkout master && git pull origin master"
     cm = commit -m
     ca = commit --amend --no-edit
     cae = commit --amend # commit amend EDIT
     log = log --stat
     l = log
+    lol = log --oneline -n 10
     graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
     pull = pull --rebase
     pullom = pull origin master
     pushom = push origin master
-    rebasem = rebase master
+    rebm = rebase master
+    resth = reset head~
 [grep]
     lineNumber = true
 [push]

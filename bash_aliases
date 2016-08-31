@@ -56,3 +56,12 @@ alias pig='safetypig'
 
 # restart clipboard if it's being a jerk
 alias restclip='launchctl stop com.apple.pboard && launchctl start com.apple.pboard'
+
+# run Python SimpleHTTPServer
+alias pyserv='python -m SimpleHTTPServer'
+
+# give me an animal making a real dumb joke
+alias punme='gshuf -n1 ~/.punlist | cowsay -f $(ls /usr/local/share/cows/ | gshuf -n1)'
+
+# play the apathy beep
+alias beep='afplay ~/.ApathyBeep.aif'
