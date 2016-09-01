@@ -24,7 +24,7 @@
     pullom = pull origin master
     pushom = push origin master
     rebm = rebase master
-    resth = reset head~
+    rest = reset head~
 [grep]
     lineNumber = true
 [push]
