@@ -24,6 +24,9 @@
     pullom = pull origin master
     pushom = push origin master
     rebm = rebase master
+    rebi = rebase -i
+    rebcont = rebase --continue
+    rebabt = rebase --abort
     rest = reset head~
 [grep]
     lineNumber = true
