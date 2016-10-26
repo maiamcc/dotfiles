@@ -29,9 +29,6 @@ alias glook='git cat-file -p'
 # search for processes by name
 alias procs="ps -ef | grep"
 
-# play a sound
-alias sound='afplay /System/Library/Sounds/Ping.aiff'
-
 # open all config files
 alias config='subl ~/.bash_profile ~/.bash_aliases ~/.work_profile ~/.work_aliases ~/.gitconfig'
 
@@ -65,3 +62,6 @@ alias punme='gshuf -n1 ~/.punlist | cowsay -f $(ls /usr/local/share/cows/ | gshu
 
 # play the apathy beep
 alias beep='afplay ~/.ApathyBeep.aif'
+
+# play dramatic music
+alias dundundun='afplay ~/.DunDunDun.aiff'

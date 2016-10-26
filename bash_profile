@@ -130,3 +130,17 @@ pcount() {
         echo "$(ps -ef | grep $1 | wc -l) - 1" | bc
     fi
 }
+
+# "check" executes the subsequent command, and plays a good or bad sound
+# according to the exit code
+chk() {
+    $*
+    if [ $? -eq 0 ]
+    then
+      # success, good sound
+      beep
+    else
+      # fail, bad sound
+      dundundun
+    fi
+}
