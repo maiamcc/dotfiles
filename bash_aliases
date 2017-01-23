@@ -1,9 +1,11 @@
 ### GENERAL THINGS ###
 
 # git, my git!
-alias g='git'
-alias gacm='git add -A && git commit -m'
-alias gaca='git add -A && git commit --amend --no-edit'
+alias g="git"
+alias gacm="git add -A && git commit -m"
+alias gaca="git add -A && git commit --amend --no-edit"
+# open modified files as returned by 'git status'
+alias stopen="subl $(paste -s -d ' ' <(git status --porcelain | awk '{print $2}'))"
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -18,10 +20,11 @@ fi
 
 # some more ls aliases
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
-alias ls='LC_COLLATE=C ls -F -G'
+alias ls='CLICOLOR_FORCE=true LC_COLLATE=C ls -F -G'
 alias ll='ls -lashF'
 alias la='ls -A'
 alias l='ls -CF'
+# see bash_profile for lst (last 10 modified files)
 
 # look at file at a git hash
 alias glook='git cat-file -p'

@@ -1,6 +1,7 @@
 ## PATH-fu
 # Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+export VIM="/Users/maiamccormick/.vim"
 
 # aggregate all history to the same .history file
 shopt -s histappend
@@ -122,7 +123,6 @@ safetypig() {
 }
 
 # count how many matching procs (excluding the "grep" you just ran)
-
 pcount() {
     if [ "$#" -lt 1 ]; then
         echo "Pass a string to grep for."
@@ -143,4 +143,33 @@ chk() {
       # fail, bad sound
       dundundun
     fi
+}
+
+# "ls -t"/"ls time"/"last" -- ls of N most-recently-modified files (default 10)
+lst() {
+    # TODO don't display awkward first line
+    # default num. files to display = 10
+    n=10
+    if [ "$1" -eq "$1" ] 2>/dev/null
+    then
+        # no path was passed, path is ".", this is num. files to display
+        path="."
+        n="$1"
+    elif [ -z "$1" ]; then
+        # no path OR numerical param., ls on "."
+        path="."
+    elif [ ! -z "$2" ]; then
+        n="$2"
+    fi
+    ls -Atl $path | head -$n
+}
+
+# Setting PATH for Python 3.6
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
+export PATH
+
+# json-format the output of cURL command
+jcurl() {
+    curl "$@" | jq '.'
 }

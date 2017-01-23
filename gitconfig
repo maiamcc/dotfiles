@@ -13,6 +13,7 @@
     co = checkout
     cp = cherry-pick
     b = branch
+    cob = checkout -b
     cm = commit -m
     ca = commit --amend --no-edit
     cae = commit --amend # commit amend EDIT
