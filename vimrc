@@ -1,6 +1,16 @@
-" syntax on
+syntax enable
 
-" VIM-PLUG (https://github.com/junegunn/vim-plug)
+set smartindent
+set expandtab
+autocmd Filetype html setlocal ts=2 sw=2 expandtab
+autocmd Filetype scss setlocal ts=2 sw=2 expandtab
+autocmd Filetype javascript setlocal ts=2 sw=2 expandtab
+autocmd Filetype python setlocal ts=4 sw=4 expandtab
+autocmd Filetype go setlocal ts=4 sw=4 expandtab
 
-call plug#begin('~/.vim/plugged')
-Plug 'fatih/vim-go'
+set number
+set relativenumber
+
+set incsearch
+set smartcase
+set ignorecase
