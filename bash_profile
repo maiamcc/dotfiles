@@ -78,9 +78,6 @@ echo "No virtualenv 'activate' file found"
 fi
 }
 
-# the fuck?? (https://github.com/nvbn/thefuck)
-eval $(thefuck --alias)
-
 # make a dir and cd into it. Supports up to one flag.
 mkgo() {
     if [ -n "$2" ]; then
