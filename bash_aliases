@@ -1,11 +1,11 @@
 ### GENERAL THINGS ###
 
 # git, my git!
-alias g="git"
-alias gacm="git add -A && git commit -m"
-alias gaca="git add -A && git commit --amend --no-edit"
+alias g='git'
+alias gacm='git add -A && git commit -m'
+alias gaca='git add -A && git commit --amend --no-edit'
 # open modified files as returned by 'git status'
-alias stopen="subl $(paste -s -d ' ' <(git status --porcelain | awk '{print $2}'))"
+alias stopen='for fn in $(git status --porcelain | awk '"'"'{print $2}'"'"'); do subl $fn; done'
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
