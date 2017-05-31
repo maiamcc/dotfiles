@@ -16,7 +16,7 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# Work-related functions
+# # Work-related functions
 if [ -f ~/.work_profile ]; then
     . ~/.work_profile
 fi
@@ -160,11 +160,6 @@ lst() {
     fi
     ls -Atl $path | head -$n
 }
-
-# Setting PATH for Python 3.6
-# The original version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
-export PATH
 
 # json-format the output of cURL command
 jcurl() {
