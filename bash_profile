@@ -1,7 +1,11 @@
 ## PATH-fu
-# Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
 export VIM="/Users/maiamccormick/.vim"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
 
 # aggregate all history to the same .history file
 shopt -s histappend
@@ -16,12 +20,11 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# # Work-related functions
+# Work-related functions
 if [ -f ~/.work_profile ]; then
     . ~/.work_profile
 fi
 
-# Work-related functions
 if [ -f ~/.work_aliases ]; then
     . ~/.work_aliases
 fi
@@ -165,3 +168,5 @@ lst() {
 jcurl() {
     curl "$@" | jq '.'
 }
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
