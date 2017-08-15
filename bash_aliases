@@ -26,9 +26,6 @@ alias la='ls -A'
 alias l='ls -CF'
 # see bash_profile for lst (last 10 modified files)
 
-# look at file at a git hash
-alias glook='git cat-file -p'
-
 # search for processes by name
 alias procs="ps -ef | grep"
 
