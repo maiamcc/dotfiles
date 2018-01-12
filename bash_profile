@@ -66,19 +66,16 @@ up() {
 }
 
 # speedily activate virtualenv
-venv () {
-if [ -f env/bin/activate ]
-then
-source env/bin/activate
-elif [ -f bin/activate ]
-then
-source bin/activate
-elif [ -f ~/.virtualenvs/${PWD##*/} ]
-then
-source ~/.virtualenvs/${PWD##*/}
-else
-echo "No virtualenv 'activate' file found"
-fi
+venv() {
+    if [ -f env/bin/activate ]; then
+        source env/bin/activate
+    elif [ -f bin/activate ]; then
+        source bin/activate
+    elif [ -f ~/.virtualenvs/${PWD##*/} ]; then
+        source ~/.virtualenvs/${PWD##*/}
+    else
+        echo "No virtualenv 'activate' file found"
+    fi
 }
 
 # make a dir and cd into it. Supports up to one flag.
