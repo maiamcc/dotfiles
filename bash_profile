@@ -47,11 +47,6 @@ if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
 fi
 
-# ...and alias tab-completion, so I can use git tab-completion with my aliases
-if [ -f ~/.alias_completion.sh ]; then
-  . ~/.alias_completion.sh
-fi
-
 # easily go up <n> directories. Credit: Benjamin Gilbert (www.github.com/bgilbert)
 # up   == cd ..
 # up 3 == cd ../../..

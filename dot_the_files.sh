@@ -10,7 +10,6 @@ if [[ "$1" == "-d" ]] || [[ "$1" == "-D" ]] || [[ "$1" == "--delete" ]]; then
   echo "Deleting your current dotfiles..."
   rm ~/.ApathyBeep.aif
   rm ~/.DunDunDun.aiff
-  rm ~/.alias_completion.sh
   rm ~/.bash_aliases
   rm ~/.bash_profile
   rm ~/.git-completion.bash
@@ -23,7 +22,6 @@ fi
 echo "Symlinking your shiny new dotfiles..."
 ln -s $DIR/ApathyBeep.aif ~/.ApathyBeep.aif
 ln -s $DIR/DunDunDun.aiff ~/.DunDunDun.aiff
-ln -s $DIR/alias_completion.sh ~/.alias_completion.sh
 ln -s $DIR/bash_aliases ~/.bash_aliases
 ln -s $DIR/bash_profile ~/.bash_profile
 ln -s $DIR/git-completion.bash ~/.git-completion.bash
