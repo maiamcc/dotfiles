@@ -26,6 +26,9 @@ alias la='ls -A'
 alias l='ls -CF'
 # see bash_profile for lst (last 10 modified files)
 
+# pretty-print path
+alias path="echo $PATH | tr -s ':' '\n'"
+
 # search for processes by name
 alias procs="ps -ef | grep"
 
