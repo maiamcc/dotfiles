@@ -28,6 +28,9 @@
     rebcont = rebase --continue
     rebabt = rebase --abort
     rest = reset head~
+
+    # https://github.com/dpup/git-workflow
+    pr = pull-request
 [grep]
     lineNumber = true
 [push]
