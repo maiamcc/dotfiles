@@ -35,8 +35,10 @@ alias procs="ps -ef | grep"
 # open all config files
 alias config='subl ~/.bash_profile ~/.bash_aliases ~/.work_profile ~/.work_aliases ~/.gitconfig'
 
-# source bash profile
-alias src='source ~/.bash_profile'
+# restart the shell (and load any changes to bash_profile etc.)
+# keeping this as "src" b/c that's what I'm used to typing (used to stand for
+# "source bash profile")
+alias src='exec -l $SHELL'
 
 # commit as a wip
 alias wip='g a && g cm "wip"'
