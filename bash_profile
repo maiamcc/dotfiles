@@ -17,15 +17,6 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# Work-related functions
-if [ -f ~/.work_profile ]; then
-    . ~/.work_profile
-fi
-
-if [ -f ~/.work_aliases ]; then
-    . ~/.work_aliases
-fi
-
 # editor is vim
 export VISUAL=vim
 export EDITOR="$VISUAL"
@@ -157,3 +148,12 @@ lst() {
 jcurl() {
     curl "$@" | jq '.'
 }
+
+# Work-related functions (source them last in case they override anythign in here)
+if [ -f ~/.work_profile ]; then
+    . ~/.work_profile
+fi
+
+if [ -f ~/.work_aliases ]; then
+    . ~/.work_aliases
+fi
