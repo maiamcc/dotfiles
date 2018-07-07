@@ -1,3 +1,6 @@
+filetype plugin indent on
+syntax enable
+
 set smartindent
 set expandtab
 autocmd Filetype html setlocal ts=2 sw=2 expandtab
