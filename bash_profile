@@ -1,8 +1,5 @@
 ## PATH-fu
-export VIM="/Users/maiamccormick/.vim"
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+export VIM="$HOME/.vim"
 
 # aggregate all history to the same .history file
 shopt -s histappend
@@ -149,7 +146,7 @@ jcurl() {
     curl "$@" | jq '.'
 }
 
-# Work-related functions (source them last in case they override anythign in here)
+# Work-related functions (source them last in case they override anything in here)
 if [ -f ~/.work_profile ]; then
     . ~/.work_profile
 fi
@@ -157,3 +154,6 @@ fi
 if [ -f ~/.work_aliases ]; then
     . ~/.work_aliases
 fi
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
