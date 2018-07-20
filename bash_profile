@@ -122,6 +122,11 @@ chk() {
     fi
 }
 
+# Pretty print path
+path() {
+    echo $PATH | tr -s ':' '\n'
+}
+
 # "ls -t"/"ls time"/"last" -- ls of N most-recently-modified files (default 10)
 lst() {
     # TODO don't display awkward first line
