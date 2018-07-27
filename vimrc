@@ -16,3 +16,6 @@ set relativenumber
 set incsearch
 set smartcase
 set ignorecase
+
+" strip trailing whitespace on save
+autocmd BufWritePre * %s/\s\+$//e
