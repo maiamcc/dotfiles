@@ -20,10 +20,20 @@ export EDITOR="$VISUAL"
 
 # git branch and status (credit: http://www.intridea.com/blog/2009/2/2/git-status-in-your-prompt)
 function parse_git_dirty {
-  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit, working tree clean" ]] && echo "*"
+  if [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit, working tree clean" ]]; then
+    # true - it's dirty
+    return 0
+  fi
+
+  return 1
 }
+
+function print_git_dirty {
+    parse_git_dirty && echo "*"
+}
+
 function parse_git_branch {
-  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/(\1$(parse_git_dirty))/"
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/(\1$(print_git_dirty))/"
 }
 export PS1="maia: \[\033[32m\]\w\[\033[33m\] \$(parse_git_branch)\[\033[00m\] $ "
 
@@ -31,6 +41,37 @@ export PS1="maia: \[\033[32m\]\w\[\033[33m\] \$(parse_git_branch)\[\033[00m\] $ 
 if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
 fi
+
+# git delete branch -- delete the current branch and go to master
+function gdb {
+    branch=$(git rev-parse --abbrev-ref HEAD)
+
+    if [ "$branch" == "master" ]; then
+        echo "This is 'master'. Nice try, buddy."
+        return 1
+    fi
+
+    if [ "$branch" == "HEAD" ]; then
+        echo "...but you're not on a branch."
+        return 1
+    fi
+
+    if parse_git_dirty; then
+        echo "You have uncomitted changes, won't delete branch."
+        return 1
+    fi
+
+    echo "> Delete local branch '${branch}'? [Y/n]"
+    read resp
+    if !([ "${resp}" == "" ] || [ "${resp}" == "y" ] || [ "${resp}" == "Y" ]); then
+        echo "OK, aborting."
+        return 0
+    fi
+
+    git checkout master
+    git branch -D ${branch}
+    git pull origin master
+}
 
 # easily go up <n> directories. Credit: Benjamin Gilbert (www.github.com/bgilbert)
 # up   == cd ..
@@ -85,11 +126,9 @@ urlencode() {
 
 urldecode() {
     # urldecode <string>
-
     local url_encoded="${1//+/ }"
     printf '%b' "${url_encoded//%/\\x}"
 }
-alias grep='grep --color=auto'
 
 # Copy a safety pig onto your clipboard.
 # (It's dangerous to go alone! Here, take this!)
