@@ -3,6 +3,7 @@
     email = maia.mcc@gmail.com
 [core]
 	editor = vim
+	excludesfile = ~/.gitignore_global
 [color]
     ui = auto
 [alias]
