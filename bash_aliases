@@ -61,6 +61,8 @@ alias restclip='launchctl stop com.apple.pboard && launchctl start com.apple.pbo
 # run Python SimpleHTTPServer
 alias pyserv='python -m SimpleHTTPServer'
 
+alias bp='bpython'
+
 # give me an animal making a real dumb joke
 alias punme='gshuf -n1 ~/.punlist | cowsay -f $(ls /usr/local/share/cows/ | gshuf -n1)'
 
