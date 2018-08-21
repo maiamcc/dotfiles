@@ -1,7 +1,9 @@
 ### GENERAL THINGS ###
 
 # git, my git!
+[ -f ~/.git-completion.bash ] && . ~/.git-completion.bash
 alias g='git'
+__git_complete g _git # autocomplete for the alias
 alias gacm='git add -A && git commit -m'
 alias gaca='git add -A && git commit --amend --no-edit'
 
