@@ -17,6 +17,7 @@ fi
 # editor is vim
 export VISUAL=vim
 export EDITOR="$VISUAL"
+set -o vi # can edit shell commands in vi
 
 # git branch and status (credit: http://www.intridea.com/blog/2009/2/2/git-status-in-your-prompt)
 function parse_git_dirty {
