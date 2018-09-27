@@ -191,6 +191,15 @@ jcurl() {
     curl "$@" | jq '.'
 }
 
+# run a command multiple times
+# usage: `multi n echo hi`
+function multi {
+    n=$1
+    shift
+
+    for ((i = 0; i < $n; i++)); do "$@"; done
+}
+
 # Work-related functions (source them last in case they override anything in here)
 if [ -f ~/.work_profile ]; then
     . ~/.work_profile
