@@ -7,7 +7,7 @@ __git_complete g _git # autocomplete for the alias
 alias gacm='git add -A && git commit -m'
 alias gaca='git add -A && git commit --amend --no-edit'
 alias grebcont='git add -A && git rebase --continue' # continue rebase
-alias rmunt='git status -s | awk "{print $2}" | xargs rm -rf' # remove untracked
+alias rmunt='git ls-files --others --exclude-standard | xargs rm -rf' # remove untracked
 
 # open modified files as returned by 'git status'
 alias stopen='for fn in $(git status --porcelain | awk '"'"'{print $2}'"'"'); do subl "$fn"; done'
