@@ -36,7 +36,15 @@ function print_git_dirty {
 function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/(\1$(print_git_dirty))/"
 }
-export PS1="maia: \[\033[32m\]\w\[\033[33m\] \$(parse_git_branch)\[\033[00m\] $ "
+
+fullprompt="maia: \[\033[32m\]\w\[\033[33m\] \$(parse_git_branch)\[\033[00m\] $ "
+export PS1="$fullprompt"
+function promptoff {
+    export PS1="\[\033[33m\]$\[\033[00m\] "
+}
+function prompton {
+    export PS1="$fullprompt"
+}
 
 # git tab-completion
 if [ -f ~/.git-completion.bash ]; then
