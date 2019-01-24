@@ -2,8 +2,8 @@
     name = Maia
     email = maia.mcc@gmail.com
 [core]
-	editor = vim
-	excludesfile = ~/.gitignore_global
+    editor = vim
+    excludesfile = ~/.gitignore_global
 [color]
     ui = auto
 [alias]
@@ -35,4 +35,4 @@
 [grep]
     lineNumber = true
 [push]
-	default = current
+    default = current
