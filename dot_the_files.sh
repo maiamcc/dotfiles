@@ -17,6 +17,7 @@ if [[ "$1" == "-d" ]] || [[ "$1" == "-D" ]] || [[ "$1" == "--delete" ]]; then
   rm ~/.punlist
   rm ~/.safety_pig
   rm ~/.vimrc
+  rm ~/usr/local/bin/git-diff-blame
 fi
 
 echo "Symlinking your shiny new dotfiles..."
@@ -29,6 +30,7 @@ ln -s $DIR/gitconfig ~/.gitconfig
 ln -s $DIR/punlist ~/.punlist
 ln -s $DIR/safety_pig ~/.safety_pig
 ln -s $DIR/vimrc ~/.vimrc
+ln -s $DIR/git-diff-blame/git-diff-blame /usr/local/bin/git-diff-blame
 
 source ~/.bash_profile
 

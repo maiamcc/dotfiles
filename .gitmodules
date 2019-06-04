@@ -1,0 +1,3 @@
+[submodule "git-diff-blame"]
+	path = git-diff-blame
+	url = git@github.com:dmnd/git-diff-blame.git
