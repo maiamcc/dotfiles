@@ -208,6 +208,9 @@ function multi {
     for ((i = 0; i < $n; i++)); do "$@"; done
 }
 
+# Add RVM to PATH for scripting.
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
 # Work-related functions (source them last in case they override anything in here)
 if [ -f ~/.work_profile ]; then
     . ~/.work_profile
@@ -216,6 +219,3 @@ fi
 if [ -f ~/.work_aliases ]; then
     . ~/.work_aliases
 fi
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
