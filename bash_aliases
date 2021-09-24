@@ -82,3 +82,5 @@ alias notif="terminal-notifier -message"
 
 # exit code of previous command
 alias prev='echo $?'
+
+alias yeet='rm -rf'
