@@ -1,6 +1,6 @@
 export VIM="$HOME/.vim"
 
-export MAIN_BRANCH="master"  # often master but can override in work_profile
+export MAIN_BRANCH="master"  # often master but can override in bash_profile_local
 
 # aggregate all history to the same .history file
 shopt -s histappend
@@ -212,11 +212,11 @@ function multi {
 # Add RVM to PATH for scripting.
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
-# Work-related functions (source them last in case they override anything in here)
-if [ -f ~/.work_profile ]; then
-    . ~/.work_profile
+# local configs (source them last in case they override anything in here)
+if [ -f ~/.bash_profile_local ]; then
+    . ~/.bash_profile_local
 fi
 
-if [ -f ~/.work_aliases ]; then
-    . ~/.work_aliases
+if [ -f ~/.bash_aliases_local ]; then
+    . ~/.bash_aliases_local
 fi

@@ -37,7 +37,7 @@ alias l='ls -CF'
 alias procs="ps -ef | grep"
 
 # open all config files
-alias config='subl ~/.bash_profile ~/.bash_aliases ~/.work_profile ~/.work_aliases ~/.gitconfig'
+alias config='subl ~/.bash_profile ~/.bash_aliases ~/.bash_profile_local ~/.bash_aliases_local ~/.gitconfig ~/.gitconfig_local'
 
 # restart the shell (and load any changes to bash_profile etc.)
 # keeping this as "src" b/c that's what I'm used to typing (used to stand for
