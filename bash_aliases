@@ -8,7 +8,7 @@ alias gacm='git add -A && git commit -m'
 alias gaca='git add -A && git commit --amend --no-edit'
 alias grebcont='git add -A && git rebase --continue' # continue rebase
 alias rmunt='git ls-files --others --exclude-standard | xargs rm -rf' # remove untracked
-alias upd="git checkout master && git pull origin master" # switch to master and update
+alias upd="git checkout $MAIN_BRANCH && git pull origin $MAIN_BRANCH" # switch to $MAIN_BRANCH and update
 
 # open modified files as returned by 'git status'
 alias stopen='for fn in $(git status --porcelain | awk '"'"'{print $2}'"'"'); do subl "$fn"; done'
@@ -47,10 +47,10 @@ alias src='exec -l $SHELL'
 # commit as a wip
 alias wip='g a && g cm "wip"'
 
-# ...and check out master
-alias wipco='g a && g cm "wip" && g co master'
+# ...and check out $MAIN_BRANCH
+alias wipco='g a && g cm "wip" && g co $MAIN_BRANCH'
 
-# commit current work as wip, update master, switch back to old branch and rebase
+# commit current work as wip, update $MAIN_BRANCH, switch back to old branch and rebase
 alias rebm='wipco && g pullom && g co - && g rebasem && g reset head~'
 
 # url encode and decode

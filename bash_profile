@@ -1,6 +1,8 @@
 ## PATH-fu
 export VIM="$HOME/.vim"
 
+export MAIN_BRANCH="master"  # often master but can override in work_profile
+
 # aggregate all history to the same .history file
 shopt -s histappend
 export HISTSIZE=100000
@@ -51,12 +53,12 @@ if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
 fi
 
-# git delete branch -- delete the current branch and go to master
+# git delete branch -- delete the current branch and go to $MAIN_BRANCH
 function gdb {
     branch=$(git rev-parse --abbrev-ref HEAD)
 
-    if [ "$branch" == "master" ]; then
-        echo "This is 'master'. Nice try, buddy."
+    if [ "$branch" == "$MAIN_BRANCH" ]; then
+        echo "This is '$MAIN_BRANCH'. Nice try, buddy."
         return 1
     fi
 
@@ -77,9 +79,9 @@ function gdb {
         return 0
     fi
 
-    git checkout master
+    git checkout $MAIN_BRANCH
     git branch -D ${branch}
-    git pull origin master
+    git pull origin $MAIN_BRANCH
 }
 
 # easily go up <n> directories. Credit: Benjamin Gilbert (www.github.com/bgilbert)
