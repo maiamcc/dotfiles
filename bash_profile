@@ -1,20 +1,19 @@
-## PATH-fu
 export VIM="$HOME/.vim"
 
 export MAIN_BRANCH="master"  # often master but can override in work_profile
 
 # aggregate all history to the same .history file
 shopt -s histappend
-export HISTSIZE=100000
-export HISTFILESIZE=100000
-export HISTCONTROL=ignoredups:erasedups
-export HISTCONTROL=ignoreboth
 export PROMPT_COMMAND="history -a;history -c;history -r;$PROMPT_COMMAND"
 
 # Alias definitions -- pulled from ~/.bash_aliases
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
 
 # editor is vim
 export VISUAL=vim
