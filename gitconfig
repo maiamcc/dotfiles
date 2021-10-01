@@ -22,9 +22,9 @@
     l = log --pretty=format:'%Cred%h%Creset - %C(yellow)<%an>%Creset %s %Cgreen(%cr)' --abbrev-commit
     lol = log --pretty=format:'%Cred%h%Creset - %C(yellow)<%an>%Creset %s %Cgreen(%cr)' --abbrev-commit -n 15
     pull = pull --rebase
-    pullom = pull origin master
-    pushom = push origin master
-    rebm = rebase master
+    pullom = pull origin $MAIN_BRANCH
+    pushom = push origin $MAIN_BRANCH
+    rebm = rebase $MAIN_BRANCH
     rebi = rebase -i
     rebcont = rebase --continue
     rebabt = rebase --abort
