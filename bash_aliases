@@ -69,6 +69,9 @@ alias pyserv='python -m SimpleHTTPServer'
 alias bp='bpython'
 
 # give me an animal making a real dumb joke
+# requires:
+#   - `brew install cowsay`
+#   - `brew install coreutils` (for gshuf)
 alias punme='gshuf -n1 ~/.punlist | cowsay -f $(ls /usr/local/share/cows/ | gshuf -n1)'
 
 # play the apathy beep
