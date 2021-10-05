@@ -8,7 +8,6 @@ alias gacm='git add -A && git commit -m'
 alias gaca='git add -A && git commit --amend --no-edit'
 alias grebcont='git add -A && git rebase --continue' # continue rebase
 alias rmunt='git ls-files --others --exclude-standard | xargs rm -rf' # remove untracked
-alias upd="git checkout $MAIN_BRANCH && git pull origin $MAIN_BRANCH" # switch to $MAIN_BRANCH and update
 
 # open modified files as returned by 'git status'
 alias stopen='for fn in $(git status --porcelain | awk '"'"'{print $2}'"'"'); do subl "$fn"; done'

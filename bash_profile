@@ -2,6 +2,10 @@ export VIM="$HOME/.vim"
 
 export MAIN_BRANCH="master"  # often master but can override in bash_profile_local
 
+rand_emo(){
+    python3 -c "import random,re;EMO='🫀🫁🧠🦷🦴👀👁👅👄💋🩸🍏🍎🍐🍊🍋🍌🍉🍇🍓🫐🍈🍒🍑🥭🍍🥥🥝🍅🍆🥑🥦🥬🥒🌶🫑🌽🥕🫒🧄🧅🥔🍠🥐🥯🍞🥖🥨🧀🥚🧈🥞🧇🥓🥩🍗🍖🦴🌭🍔🍟🍕🫓🥪🥙🧆🌮🌯🫔🥗🥘🫕🥫🍝🍜🍲🍛🍣🍱🥟🦪🍤🍙🍚🍘🍥🥠🥮🍢🍡🍧🍨🍦🥧🧁🍰🎂🍮🍭🍬🍫🍿🍩🍪🥜🍯🥛🍼🫖☕️🍵🧃🥤🧋🍶🍺🍻🥂🍷🥃🍸🍹🍾🧊🥄🍴🍽🥣🥡🥢🧂🐶🐱🐭🐹🐰🦊🐻🐼🐻‍❄️🐨🐯🦁🐮🐷🐽🐸🐵🙈🙉🙊🐒🐔🐧🐦🐤🐣🐥🦆🦅🦉🦇🐺🐗🐴🦄🐝🪱🐛🦋🐌🐞🐜🪰🪲🪳🦟🦗🕷🕸🦂🐢🐍🦎🦖🦕🐙🦑🦐🦞🦀🐡🐠🐟🐬🐳🐋🦈🐊🐅🐆';print(random.choice(list(EMO.replace(' ', ''))), end='')"
+}
+
 # aggregate all history to the same .history file
 shopt -s histappend
 export PROMPT_COMMAND="history -a;history -c;history -r;$PROMPT_COMMAND"
@@ -38,7 +42,7 @@ function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/(\1$(print_git_dirty))/"
 }
 
-fullprompt="maia: \[\033[32m\]\w\[\033[33m\] \$(parse_git_branch)\[\033[00m\] $ "
+fullprompt="maia: \[\033[32m\]\w\[\033[33m\] \$(parse_git_branch)\[\033[00m\] $(rand_emo) "
 export PS1="$fullprompt"
 function promptoff {
     export PS1="\[\033[33m\]$\[\033[00m\] "
@@ -81,6 +85,11 @@ function gdb {
     git checkout $MAIN_BRANCH
     git branch -D ${branch}
     git pull origin $MAIN_BRANCH
+}
+
+# "update" -- switch to $MAIN_BRANCH and update
+function upd {
+    git checkout $MAIN_BRANCH && git pull origin $MAIN_BRANCH
 }
 
 # easily go up <n> directories. Credit: Benjamin Gilbert (www.github.com/bgilbert)
