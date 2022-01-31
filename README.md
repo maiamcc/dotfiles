@@ -13,3 +13,6 @@ When I set up a new machine, I generally want to install:
 * [Time Out](https://www.dejal.com/timeout/) to make me take a damn break
 * [Spectacle](https://www.spectacleapp.com/) for window management
 * [Google Drive Backup and Sync](https://www.google.com/drive/download/) to sync my files
+* Tools and Utils:
+	* [`bat`](https://github.com/sharkdp/bat) (better `cat`)
+	* [`diff-so-fancy`](https://github.com/so-fancy/diff-so-fancy) (cleaner diffs)
