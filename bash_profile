@@ -24,6 +24,9 @@ export VISUAL=vim
 export EDITOR="$VISUAL"
 set -o vi # can edit shell commands in vi
 
+# pyenv in path
+export PATH=$(pyenv root)/shims:$PATH
+
 # git branch and status (credit: http://www.intridea.com/blog/2009/2/2/git-status-in-your-prompt)
 function parse_git_dirty {
   if [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit, working tree clean" ]]; then
