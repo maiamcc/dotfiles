@@ -221,8 +221,22 @@ function multi {
     for ((i = 0; i < $n; i++)); do "$@"; done
 }
 
+# compile the specified file with lilypond (and get systray notification
+# of success or failure). (This could be a one-liner but I'm lazy.)
+function lp {
+    lilypond "$1"
+    code=$?
+    if [ $code -eq 0 ]; then
+      terminal-notifier -message 'Lilypond success ✅'
+    else
+      terminal-notifier -message 'Lilypond failure ❌'
+      return $code
+    fi
+}
+
 # Add RVM to PATH for scripting.
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
 
 # local configs (source them last in case they override anything in here)
 if [ -f ~/.bash_profile_local ]; then
