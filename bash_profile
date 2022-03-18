@@ -101,6 +101,21 @@ function upd {
     git checkout $MAIN_BRANCH && git pull origin $MAIN_BRANCH
 }
 
+# usage:
+#     commit_diff branchA branchB
+# create a git commit of the diff between branchA and branchB
+# where branchA is earlier of the two, and branchB is the one
+# with the changes
+function commit_diff {
+    branchA=$1
+    branchB=$2
+
+    git checkout -b tmp $branchB
+    git reset --soft $branchA
+    git commit -m "diff $branchA...$branchB"
+
+}
+
 # easily go up <n> directories. Credit: Benjamin Gilbert (www.github.com/bgilbert)
 # up   == cd ..
 # up 3 == cd ../../..
