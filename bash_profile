@@ -249,6 +249,11 @@ function lp {
     fi
 }
 
+# watch docker containers
+function dockerwatch {
+    watch -d 'docker ps --format "table {{.ID}}\t{{.Names}}\t{{.CreatedAt}}\t{{.RunningFor}}\t{{.State}}"'
+}
+
 # Add RVM to PATH for scripting.
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 

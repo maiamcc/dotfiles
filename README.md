@@ -15,4 +15,7 @@ When I set up a new machine, I generally want to install:
 * [Google Drive Backup and Sync](https://www.google.com/drive/download/) to sync my files
 * Tools and Utils:
 	* [`bat`](https://github.com/sharkdp/bat) (better `cat`)
+	* [`htop`](https://formulae.brew.sh/formula/htop) (better `top`)
 	* [`diff-so-fancy`](https://github.com/so-fancy/diff-so-fancy) (cleaner diffs)
+	* [`terminal-notifier`](https://formulae.brew.sh/formula/terminal-notifier) (systray notifications from terminal)
+	* [`watch`](https://formulae.brew.sh/formula/watch#default) (run a program periodically and live update output)
