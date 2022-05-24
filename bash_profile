@@ -1,9 +1,3 @@
-
-#### FIG ENV VARIABLES ####
-# Please make sure this block is at the start of this file.
-[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
-#### END FIG ENV VARIABLES ####
-
 export VIM="$HOME/.vim"
 
 export MAIN_BRANCH="master"  # often master but can override in bash_profile_local
@@ -267,9 +261,3 @@ fi
 if [ -f ~/.bash_aliases_local ]; then
     . ~/.bash_aliases_local
 fi
-
-
-#### FIG ENV VARIABLES ####
-# Please make sure this block is at the end of this file.
-[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
-#### END FIG ENV VARIABLES ####
