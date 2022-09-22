@@ -19,6 +19,7 @@
     cm = commit -m
     ca = commit --amend --no-edit
     cae = commit --amend # commit amend EDIT
+    cmempty = commit --allow-empty -m
     log = log --stat
     l = log --pretty=format:'%Cred%h%Creset - %C(yellow)<%an>%Creset %s %Cgreen(%cr)' --abbrev-commit
     lol = log --pretty=format:'%Cred%h%Creset - %C(yellow)<%an>%Creset %s %Cgreen(%cr)' --abbrev-commit -n 15
