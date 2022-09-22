@@ -258,11 +258,15 @@ function dockerwatch {
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 
-# local configs (source them last in case they override anything in here)
+# local configs (source them last in case they override anything in here) and secrets
 if [ -f ~/.bash_profile_local ]; then
     . ~/.bash_profile_local
 fi
 
 if [ -f ~/.bash_aliases_local ]; then
     . ~/.bash_aliases_local
+fi
+
+if [ -f ~/.SECRETS ]; then
+    . ~/.SECRETS
 fi
