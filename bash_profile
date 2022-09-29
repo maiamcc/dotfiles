@@ -2,6 +2,8 @@ export VIM="$HOME/.vim"
 
 export MAIN_BRANCH="master"  # often master but can override in bash_profile_local
 
+export VENV_DIR="$HOME/.virtualenvs"  # where python virtualenvs are stored by default
+
 rand_emo(){
     python3 -c "import random,re;EMO='🫀🫁🧠🦷🦴👀👁👅👄💋🩸🍏🍎🍐🍊🍋🍌🍉🍇🍓🫐🍈🍒🍑🥭🍍🥥🥝🍅🍆🥑🥦🥬🥒🌶🫑🌽🥕🫒🧄🧅🥔🍠🥐🥯🍞🥖🥨🧀🥚🧈🥞🧇🥓🥩🍗🍖🦴🌭🍔🍟🍕🫓🥪🥙🧆🌮🌯🫔🥗🥘🫕🥫🍝🍜🍲🍛🍣🍱🥟🦪🍤🍙🍚🍘🍥🥠🥮🍢🍡🍧🍨🍦🥧🧁🍰🎂🍮🍭🍬🍫🍿🍩🍪🥜🍯🥛🍼🫖☕️🍵🧃🥤🧋🍶🍺🍻🥂🍷🥃🍸🍹🍾🧊🥄🍴🍽🥣🥡🥢🧂🐶🐱🐭🐹🐰🦊🐻🐼🐻‍❄️🐨🐯🦁🐮🐷🐽🐸🐵🙈🙉🙊🐒🐔🐧🐦🐤🐣🐥🦆🦅🦉🦇🐺🐗🐴🦄🐝🪱🐛🦋🐌🐞🐜🪰🪲🪳🦟🦗🕷🕸🦂🐢🐍🦎🦖🦕🐙🦑🦐🦞🦀🐡🐠🐟🐬🐳🐋🦈🐊🐅🐆';print(random.choice(list(EMO.replace(' ', ''))), end='')"
 }
@@ -127,17 +129,27 @@ up() {
     OLDPWD=$old
 }
 
+alias default_venv="echo $VENV_DIR/${PWD##*/}"
+
 # speedily activate virtualenv
 venv() {
     if [ -f env/bin/activate ]; then
         source env/bin/activate
     elif [ -f bin/activate ]; then
         source bin/activate
-    elif [ -f ~/.virtualenvs/${PWD##*/} ]; then
-        source ~/.virtualenvs/${PWD##*/}
+    elif [ -f $(default_venv)/bin/activate ]; then
+        source $(default_venv)/bin/activate
     else
         echo "No virtualenv 'activate' file found"
     fi
+}
+
+# create a new virtualenv (using whatever python version your current python
+#   executable points to). Run from directory foo/bar/my_project, will create
+#   a new venv at $VENV_DIR/my_project
+new_venv() { 
+    echo Creating new virtualenv using $(python --version) at path: $(default_venv)
+    python -m venv $(default_venv)
 }
 
 # make a dir and cd into it. Supports up to one flag.
