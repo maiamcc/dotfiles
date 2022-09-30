@@ -1,13 +1,3 @@
-export VIM="$HOME/.vim"
-
-export MAIN_BRANCH="master"  # often master but can override in bash_profile_local
-
-export VENV_DIR="$HOME/.virtualenvs"  # where python virtualenvs are stored by default
-
-rand_emo(){
-    python3 -c "import random,re;EMO='🫀🫁🧠🦷🦴👀👁👅👄💋🩸🍏🍎🍐🍊🍋🍌🍉🍇🍓🫐🍈🍒🍑🥭🍍🥥🥝🍅🍆🥑🥦🥬🥒🌶🫑🌽🥕🫒🧄🧅🥔🍠🥐🥯🍞🥖🥨🧀🥚🧈🥞🧇🥓🥩🍗🍖🦴🌭🍔🍟🍕🫓🥪🥙🧆🌮🌯🫔🥗🥘🫕🥫🍝🍜🍲🍛🍣🍱🥟🦪🍤🍙🍚🍘🍥🥠🥮🍢🍡🍧🍨🍦🥧🧁🍰🎂🍮🍭🍬🍫🍿🍩🍪🥜🍯🥛🍼🫖☕️🍵🧃🥤🧋🍶🍺🍻🥂🍷🥃🍸🍹🍾🧊🥄🍴🍽🥣🥡🥢🧂🐶🐱🐭🐹🐰🦊🐻🐼🐻‍❄️🐨🐯🦁🐮🐷🐽🐸🐵🙈🙉🙊🐒🐔🐧🐦🐤🐣🐥🦆🦅🦉🦇🐺🐗🐴🦄🐝🪱🐛🦋🐌🐞🐜🪰🪲🪳🦟🦗🕷🕸🦂🐢🐍🦎🦖🦕🐙🦑🦐🦞🦀🐡🐠🐟🐬🐳🐋🦈🐊🐅🐆';print(random.choice(list(EMO.replace(' ', ''))), end='')"
-}
-
 # big history, and aggregate it all to the same .history file
 shopt -s histappend
 export HISTSIZE=100000
@@ -21,17 +11,28 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+### PATH STUFF
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
+export PATH=$(pyenv root)/shims:$PATH
+
+# Pretty print path
+path() {
+    echo $PATH | tr -s ':' '\n'
+}
+### /PATH STUFF
 
 # editor is vim
+export VIM="$HOME/.vim"
 export VISUAL=vim
 export EDITOR="$VISUAL"
 set -o vi # can edit shell commands in vi
 
-# pyenv in path
-export PATH=$(pyenv root)/shims:$PATH
+### SHELL PROMPT
+rand_emo(){
+    python3 -c "import random,re;EMO='🫀🫁🧠🦷🦴👀👁👅👄💋🩸🍏🍎🍐🍊🍋🍌🍉🍇🍓🫐🍈🍒🍑🥭🍍🥥🥝🍅🍆🥑🥦🥬🥒🌶🫑🌽🥕🫒🧄🧅🥔🍠🥐🥯🍞🥖🥨🧀🥚🧈🥞🧇🥓🥩🍗🍖🦴🌭🍔🍟🍕🫓🥪🥙🧆🌮🌯🫔🥗🥘🫕🥫🍝🍜🍲🍛🍣🍱🥟🦪🍤🍙🍚🍘🍥🥠🥮🍢🍡🍧🍨🍦🥧🧁🍰🎂🍮🍭🍬🍫🍿🍩🍪🥜🍯🥛🍼🫖☕️🍵🧃🥤🧋🍶🍺🍻🥂🍷🥃🍸🍹🍾🧊🥄🍴🍽🥣🥡🥢🧂🐶🐱🐭🐹🐰🦊🐻🐼🐻‍❄️🐨🐯🦁🐮🐷🐽🐸🐵🙈🙉🙊🐒🐔🐧🐦🐤🐣🐥🦆🦅🦉🦇🐺🐗🐴🦄🐝🪱🐛🦋🐌🐞🐜🪰🪲🪳🦟🦗🕷🕸🦂🐢🐍🦎🦖🦕🐙🦑🦐🦞🦀🐡🐠🐟🐬🐳🐋🦈🐊🐅🐆';print(random.choice(list(EMO.replace(' ', ''))), end='')"
+}
 
 # git branch and status (credit: http://www.intridea.com/blog/2009/2/2/git-status-in-your-prompt)
 function parse_git_dirty {
@@ -59,6 +60,11 @@ function promptoff {
 function prompton {
     export PS1="$fullprompt"
 }
+### /SHELL PROMPT
+
+
+### GIT HELPERS
+export MAIN_BRANCH="master"  # often master but can override in bash_profile_local
 
 # git tab-completion
 if [ -f ~/.git-completion.bash ]; then
@@ -115,20 +121,11 @@ function commit_diff {
     git commit -m "diff $branchA...$branchB"
 
 }
+### /GIT HELPERS
 
-# easily go up <n> directories. Credit: Benjamin Gilbert (www.github.com/bgilbert)
-# up   == cd ..
-# up 3 == cd ../../..
-up() {
-    local old
-    old=$PWD
-    for i in `seq 1 $1` ; do
-        cd ..
-    done
-    # keep "cd -" working
-    OLDPWD=$old
-}
 
+### PYTHON HELPERS
+export VENV_DIR="$HOME/.virtualenvs"  # where python virtualenvs are stored by default
 alias default_venv="echo $VENV_DIR/${PWD##*/}"
 
 # speedily activate virtualenv
@@ -151,6 +148,23 @@ new_venv() {
     echo Creating new virtualenv using $(python --version) at path: $(default_venv)
     python -m venv $(default_venv)
 }
+### /PYTHON HELPERS
+
+### NAVIGATION/SHELL UTILS
+
+# easily go up <n> directories. Credit: Benjamin Gilbert (www.github.com/bgilbert)
+# up   == cd ..
+# up 3 == cd ../../..
+up() {
+    local old
+    old=$PWD
+    for i in `seq 1 $1` ; do
+        cd ..
+    done
+    # keep "cd -" working
+    OLDPWD=$old
+}
+
 
 # make a dir and cd into it. Supports up to one flag.
 mkgo() {
@@ -162,6 +176,59 @@ mkgo() {
     cd $1
 }
 
+# count how many matching procs (excluding the "grep" you just ran)
+pcount() {
+    if [ "$#" -lt 1 ]; then
+        echo "Pass a string to grep for."
+    else
+        echo "$(ps -ef | grep $1 | wc -l) - 1" | bc
+    fi
+}
+
+# "check" executes the subsequent command, and plays a good or bad sound
+# according to the exit code
+chk() {
+    $*
+    if [ $? -eq 0 ]
+    then
+      # success, good sound
+      beep
+    else
+      # fail, bad sound
+      dundundun
+    fi
+}
+
+# "ls -t"/"ls time"/"last" -- ls of N most-recently-modified files (default 10)
+lst() {
+    # TODO don't display awkward first line
+    # default num. files to display = 10
+    n=10
+    if [ "$1" -eq "$1" ] 2>/dev/null
+    then
+        # no path was passed, path is ".", this is num. files to display
+        path="."
+        n="$1"
+    elif [ -z "$1" ]; then
+        # no path OR numerical param., ls on "."
+        path="."
+    elif [ ! -z "$2" ]; then
+        n="$2"
+    fi
+    ls -Atl $path | head -$n
+}
+
+# run a command multiple times
+# usage: `multi n echo hi`
+function multi {
+    n=$1
+    shift
+
+    for ((i = 0; i < $n; i++)); do "$@"; done
+}
+### / NAVIGATION/SHELL UTILS
+
+### OTHER UTILS
 # url encode and decode. Credit: CDown (https://gist.github.com/cdown/1163649)
 urlencode() {
     # urlencode <string>
@@ -191,66 +258,13 @@ safetypig() {
     fi
 }
 
-# count how many matching procs (excluding the "grep" you just ran)
-pcount() {
-    if [ "$#" -lt 1 ]; then
-        echo "Pass a string to grep for."
-    else
-        echo "$(ps -ef | grep $1 | wc -l) - 1" | bc
-    fi
-}
-
-# "check" executes the subsequent command, and plays a good or bad sound
-# according to the exit code
-chk() {
-    $*
-    if [ $? -eq 0 ]
-    then
-      # success, good sound
-      beep
-    else
-      # fail, bad sound
-      dundundun
-    fi
-}
-
-# Pretty print path
-path() {
-    echo $PATH | tr -s ':' '\n'
-}
-
-# "ls -t"/"ls time"/"last" -- ls of N most-recently-modified files (default 10)
-lst() {
-    # TODO don't display awkward first line
-    # default num. files to display = 10
-    n=10
-    if [ "$1" -eq "$1" ] 2>/dev/null
-    then
-        # no path was passed, path is ".", this is num. files to display
-        path="."
-        n="$1"
-    elif [ -z "$1" ]; then
-        # no path OR numerical param., ls on "."
-        path="."
-    elif [ ! -z "$2" ]; then
-        n="$2"
-    fi
-    ls -Atl $path | head -$n
-}
 
 # json-format the output of cURL command
 jcurl() {
     curl "$@" | jq '.'
 }
 
-# run a command multiple times
-# usage: `multi n echo hi`
-function multi {
-    n=$1
-    shift
 
-    for ((i = 0; i < $n; i++)); do "$@"; done
-}
 
 # compile the specified file with lilypond (and get systray notification
 # of success or failure). (This could be a one-liner but I'm lazy.)
@@ -269,6 +283,8 @@ function lp {
 function dockerwatch {
     watch -d 'docker ps --format "table {{.ID}}\t{{.Names}}\t{{.CreatedAt}}\t{{.RunningFor}}\t{{.State}}"'
 }
+
+### / OTHER UTILS
 
 # Add RVM to PATH for scripting.
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
