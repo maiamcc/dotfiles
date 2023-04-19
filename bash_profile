@@ -126,7 +126,9 @@ function commit_diff {
 
 ### PYTHON HELPERS
 export VENV_DIR="$HOME/.virtualenvs"  # where python virtualenvs are stored by default
-alias default_venv="echo $VENV_DIR/${PWD##*/}"
+default_venv() {
+    echo $VENV_DIR/${PWD##*/}
+}
 
 # speedily activate virtualenv
 venv() {
