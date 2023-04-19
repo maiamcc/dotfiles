@@ -52,7 +52,7 @@ function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/(\1$(print_git_dirty))/"
 }
 
-fullprompt="maia: \[\033[32m\]\w\[\033[33m\] \$(parse_git_branch)\[\033[00m\] $(rand_emo)  "
+fullprompt="maia \[\033[0;35m\][\@]\033[33m\]: \[\033[32m\]\w\[\033[33m\] \$(parse_git_branch)\[\033[00m\] $(rand_emo)  "
 export PS1="$fullprompt"
 function promptoff {
     export PS1="\[\033[33m\]$\[\033[00m\] "
