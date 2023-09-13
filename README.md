@@ -19,3 +19,4 @@ When I set up a new machine, I generally want to install:
 	* [`diff-so-fancy`](https://github.com/so-fancy/diff-so-fancy) (cleaner diffs)
 	* [`terminal-notifier`](https://formulae.brew.sh/formula/terminal-notifier) (systray notifications from terminal)
 	* [`watch`](https://formulae.brew.sh/formula/watch#default) (run a program periodically and live update output)
+	* [jq](https://jqlang.github.io/jq/) and [yq](https://github.com/kislyuk/yq) for json/yaml parsing
