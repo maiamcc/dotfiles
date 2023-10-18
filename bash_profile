@@ -12,6 +12,11 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 ### PATH STUFF
+if [ -f /opt/homebrew/bin/brew ]; then
+    # if Apple Silicone brew installed, add it to path
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
