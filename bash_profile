@@ -69,19 +69,22 @@ function prompton {
 
 
 ### GIT HELPERS
-export MAIN_BRANCH="master"  # often master but can override in bash_profile_local
+function main_branch {
+    # set in .gitconfig (and can be overridden for individual repos)
+    git config utils.mainBranch
+}
 
 # git tab-completion
 if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
 fi
 
-# git delete branch -- delete the current branch and go to $MAIN_BRANCH
+# git delete branch -- delete the current branch and go to the main branch
 function gdb {
     branch=$(git rev-parse --abbrev-ref HEAD)
 
-    if [ "$branch" == "$MAIN_BRANCH" ]; then
-        echo "This is '$MAIN_BRANCH'. Nice try, buddy."
+    if [ "$branch" == "$main_branch" ]; then
+        echo "This is '$main_branch'. Nice try, buddy."
         return 1
     fi
 
@@ -102,14 +105,14 @@ function gdb {
         return 0
     fi
 
-    git checkout $MAIN_BRANCH
+    git checkout $main_branch
     git branch -D ${branch}
-    git pull origin $MAIN_BRANCH
+    git pull origin $main_branch
 }
 
-# "update" -- switch to $MAIN_BRANCH and update
+# "update" -- switch to $main_branch and update
 function upd {
-    git checkout $MAIN_BRANCH && git pull origin $MAIN_BRANCH
+    git checkout $main_branch && git pull origin $main_branch
 }
 
 # usage:

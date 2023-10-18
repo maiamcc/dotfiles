@@ -43,14 +43,16 @@ alias config='subl ~/.bash_profile ~/.bash_aliases ~/.bash_profile_local ~/.bash
 # "source bash profile")
 alias src='exec -l $SHELL'
 
+### GIT
 # commit as a wip
 alias wip='g a && g cm "wip"'
 
 # ...and check out $MAIN_BRANCH
-alias wipco='g a && g cm "wip" && g co $MAIN_BRANCH'
+alias wipco='g a && g cm "wip" && g co $(main_branch)'
 
 # commit current work as wip, update $MAIN_BRANCH, switch back to old branch and rebase
 alias rebm='wipco && g pullom && g co - && g rebasem && g reset head~'
+### /GIT
 
 # url encode and decode
 alias urlenc='urlencode'
