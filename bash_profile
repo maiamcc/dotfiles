@@ -83,8 +83,8 @@ fi
 function gdb {
     branch=$(git rev-parse --abbrev-ref HEAD)
 
-    if [ "$branch" == "$main_branch" ]; then
-        echo "This is '$main_branch'. Nice try, buddy."
+    if [ "$branch" == "$(main_branch)" ]; then
+        echo "This is '$(main_branch)'. Nice try, buddy."
         return 1
     fi
 
@@ -105,14 +105,14 @@ function gdb {
         return 0
     fi
 
-    git checkout $main_branch
+    git checkout $(main_branch)
     git branch -D ${branch}
-    git pull origin $main_branch
+    git pull origin $(main_branch)
 }
 
 # "update" -- switch to $main_branch and update
 function upd {
-    git checkout $main_branch && git pull origin $main_branch
+    git checkout $(main_branch) && git pull origin $(main_branch)
 }
 
 # usage:
