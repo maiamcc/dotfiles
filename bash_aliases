@@ -73,7 +73,7 @@ alias bp='bpython'
 # requires:
 #   - `brew install cowsay`
 #   - `brew install coreutils` (for gshuf)
-alias punme='gshuf -n1 ~/.punlist | cowsay -f $(ls /usr/local/share/cows/ | gshuf -n1)'
+alias punme='gshuf -n1 ~/.punlist | cowsay -f $(cowsay -l | gshuf -n1)'
 
 # play the apathy beep
 alias beep='afplay ~/.ApathyBeep.aif'
