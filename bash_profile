@@ -295,6 +295,27 @@ function dockerwatch {
     watch -d 'docker ps --format "table {{.ID}}\t{{.Names}}\t{{.CreatedAt}}\t{{.RunningFor}}\t{{.State}}"'
 }
 
+# try and `find` a directory by substring.
+# usage:
+#     finddir gimp
+# ^ searches / for directories named *gimp* (case insensitive),
+# by default at a max depth of 6
+# usage:
+#     finddir gimp 8
+# ^ as above but with a max depth of 7
+# TODO: depth as flag; ability to set starting dir; set file vs. directory
+function finddir {
+    STR=$1  # string to search for (case insensitive)
+
+    if [ -z "$2" ]; then
+        DEPTH=6
+    else
+        DEPTH=$2
+    fi
+
+    sudo find / -type d -iname "*$STR*" -maxdepth $DEPTH 2>/dev/null
+}
+
 ### / OTHER UTILS
 
 # Add RVM to PATH for scripting.
