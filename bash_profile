@@ -30,7 +30,6 @@ path() {
 ### /PATH STUFF
 
 # editor is vim
-export VIM="$HOME/.vim"
 export VISUAL=vim
 export EDITOR="$VISUAL"
 set -o vi # can edit shell commands in vi
