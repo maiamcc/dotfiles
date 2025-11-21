@@ -13,10 +13,19 @@ When I set up a new machine, I generally want to install:
 * [Time Out](https://www.dejal.com/timeout/) to make me take a damn break
 * [Rectangle](https://rectangleapp.com/) (successor of Spectacle) for window management
 * [Google Drive Backup and Sync](https://www.google.com/drive/download/) to sync my files
+* [`brew`](https://brew.sh/), obviously
 * Tools and Utils:
+	* [`pyenv`](https://github.com/pyenv/pyenv) for managing Python versions
 	* [`bat`](https://github.com/sharkdp/bat) (better `cat`)
 	* [`htop`](https://formulae.brew.sh/formula/htop) (better `top`)
 	* [`diff-so-fancy`](https://github.com/so-fancy/diff-so-fancy) (cleaner diffs)
 	* [`terminal-notifier`](https://formulae.brew.sh/formula/terminal-notifier) (systray notifications from terminal)
 	* [`watch`](https://formulae.brew.sh/formula/watch#default) (run a program periodically and live update output)
 	* [jq](https://jqlang.github.io/jq/) and [yq](https://github.com/kislyuk/yq) for json/yaml parsing
+* [Spotify](https://www.spotify.com/de-en/download/other/) for tunes
+* [GIMP](https://www.gimp.org/downloads/) for image editing
+* Browser extensions:
+	* an ad blocker ( [Chrome](https://chromewebstore.google.com/detail/ublock/epcnnfbjfcgphgdmggkamkmgojdagdnn?hl=en) / [FireFox](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search) )
+	* 1password ( [Chrome](https://chromewebstore.google.com/detail/1password-%E2%80%93-password-mana/aeblfdkhhhdcdjpifhhbdiojplfjncoa) / [FireFox](https://addons.mozilla.org/en-US/firefox/addon/1password-x-password-manager/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search) )
+	* Vimium ( [Chrome](https://chromewebstore.google.com/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb) / [FireFox](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search) )
+
