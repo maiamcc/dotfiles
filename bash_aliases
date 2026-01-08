@@ -45,13 +45,12 @@ alias src='exec -l $SHELL'
 
 ### GIT
 # commit as a wip
-alias wip='g a && g cm "wip"'
+alias wip='g a && g cm "wip" --no-verify'
 
 # ...and check out $MAIN_BRANCH
 alias wipco='g a && g cm "wip" && g co $(main_branch)'
 
-# commit current work as wip, update $MAIN_BRANCH, switch back to old branch and rebase
-alias rebm='wipco && g pullom && g co - && g rebasem && g reset head~'
+alias rebm='git rebase -m $(main_branch)'
 ### /GIT
 
 # url encode and decode
