@@ -26,7 +26,7 @@
     pull = pull --rebase
     pullom = "!git pull origin $main_branch"
     pushom = "! git push origin $main_branch"
-    rebm = "! git rebase $main_branch"
+    # rebm = "!git rebase -m $main_branch"
     rebi = rebase -i
     rebcont = rebase --continue
     rebabt = rebase --abort
