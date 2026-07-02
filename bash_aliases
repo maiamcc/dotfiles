@@ -50,7 +50,7 @@ alias wip='g a && g cm "wip" --no-verify'
 # ...and check out $MAIN_BRANCH
 alias wipco='g a && g cm "wip" && g co $(main_branch)'
 
-alias rebm='git rebase -m $(main_branch)'
+# alias rebm='git rebase -m $(main_branch)'
 ### /GIT
 
 # url encode and decode
