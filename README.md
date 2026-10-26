@@ -8,6 +8,13 @@ I use [iTerm2](https://iterm2.com/downloads.html) as my terminal app. Defaults a
 ## IDE Config
 I use Jetbrains editors. Current theme of choice is [Solarized Dark](https://plugins.jetbrains.com/plugin/12112-solarized-theme).
 
+See also:
+* DataGrip config:
+	* add/symlink `Vertical-Groovy.txt.groovy` into the DataGrip data extractors directory, e.g.
+	```
+	ln -s $(pwd)/Vertical-Groovy.txt.groovy ~/Library/Application\ Support/JetBrains/DataGrip2025.2/extensions/com.intellij.database/data/extractors
+	```
+
 ## Other Software I Want On My Machines
 When I set up a new machine, I generally want to install:
 * [Time Out](https://www.dejal.com/timeout/) to make me take a damn break
